@@ -34,8 +34,8 @@ export function UserDashboard() {
       if (profileError) throw profileError;
 
       setProfile(data);
-    } catch (error) {
-      setError(error.message);
+    } catch (error: any) {
+      setError(error.message || 'An unexpected error occurred');
     } finally {
       setLoading(false);
     }
