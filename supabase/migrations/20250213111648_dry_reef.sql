@@ -25,28 +25,51 @@ CREATE TABLE IF NOT EXISTS profiles (
   updated_at timestamptz DEFAULT now()
 );
 
+-- Insert the user into the auth.users table if it doesn't already exist
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM auth.users WHERE email = 'aryan@aryan.com') THEN
+    INSERT INTO auth.users (id, email, password)
+    VALUES (
+      uuid_generate_v4(),
+      'aryan@aryan.com',
+      crypt('aryan@Aryan#123', gen_salt('bf'))
+    );
+  END IF;
+END $$;
+
+-- Insert the profile into the profiles table if it doesn't already exist
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM profiles WHERE email = 'aryan@aryan.com') THEN
+    INSERT INTO profiles (id, email, full_name, role)
+    VALUES (
+      (SELECT id FROM auth.users WHERE email = 'aryan@aryan.com'),
+      'aryan@aryan.com',
+      'Aryan',
+      'admin'
+    );
+  END IF;
+END $$;
+
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Users can read own profile"
+CREATE POLICY "Users can view their own profile"
   ON profiles
   FOR SELECT
-  TO authenticated
   USING (auth.uid() = id);
 
-CREATE POLICY "Users can update own profile"
+CREATE POLICY "Users can update their own profile"
   ON profiles
   FOR UPDATE
-  TO authenticated
   USING (auth.uid() = id);
 
-CREATE POLICY "Admins can read all profiles"
+CREATE POLICY "Admins can view all profiles"
   ON profiles
   FOR SELECT
-  TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM profiles
-      WHERE profiles.id = auth.uid()
-      AND profiles.role = 'admin'
-    )
-  );
+  USING (EXISTS (
+    SELECT 1
+    FROM profiles
+    WHERE id = auth.uid()
+    AND role = 'admin'
+  ));
