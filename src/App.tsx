@@ -4,7 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
-import { ChatBot } from './components/ChatBot';
+import { ChatBotUserPanel } from './components/ChatBotUserPanel';
 import { AuthForm } from './components/AuthForm';
 import { AdminDashboard } from './components/AdminDashboard';
 import { UserDashboard } from './components/UserDashboard';
@@ -15,7 +15,7 @@ function HomePage() {
       <Hero />
       <ServicesSection />
       <AboutSection />
-      <ChatBot />
+      <ChatBotUserPanel />
     </div>
   );
 }

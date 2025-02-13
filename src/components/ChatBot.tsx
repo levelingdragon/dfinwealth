@@ -87,7 +87,7 @@ export function ChatBot() {
         <div className="fixed bottom-4 right-4 w-96 h-[600px] bg-white rounded-lg shadow-xl flex flex-col">
           {/* Header */}
           <div className="p-4 bg-blue-600 text-white rounded-t-lg flex justify-between items-center">
-            <h3 className="font-semibold">Financial Assistant</h3>
+            <h3 className="font-semibold">ChatBot</h3>
             <button
               onClick={() => setIsOpen(false)}
               className="p-1 hover:bg-blue-700 rounded"
@@ -131,7 +131,7 @@ export function ChatBot() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask me anything about finance..."
+                placeholder="Type your message..."
                 className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                 disabled={isLoading}
               />
