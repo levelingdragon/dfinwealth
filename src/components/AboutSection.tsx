@@ -69,35 +69,22 @@ export function AboutSection() {
   ];
 
   return (
-    <section className="py-16 bg-gray-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">About Us</h2>
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          {aboutContent.map((item, index) => (
-            <AccordionItem
-              key={index}
-              title={item.title}
-              content={item.content}
-              isOpen={openIndex === index}
-              onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-            />
-          ))}
-        </div>
-        
-        <div className="mt-12 space-y-8">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Our Goal</h3>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Our goal is to simplify your accounting processes, allowing you to focus on what you do best — running your business or managing your finances.</li>
-              <li>D FINWEALTH ADVISORS has an aim of becoming "The Trusted Partners" in the world of accounting. We pride ourselves on our commitment to accuracy, integrity, and exceptional customer service.</li>
-              <li>We're here to help you build a strong financial foundation and work toward your goals with confidence.</li>
-            </ul>
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">About Us</h2>
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 mb-8 md:mb-0">
+            <img src="/path/to/your/image.jpg" alt="About Us" className="rounded-lg shadow-lg" />
           </div>
-          
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Our Focus</h3>
+          <div className="md:w-1/2 md:pl-8">
+            <p className="text-gray-700 mb-4">
+              We are a team of dedicated professionals committed to providing top-notch financial services. Our mission is to help you achieve your financial goals through personalized solutions and expert advice.
+            </p>
+            <p className="text-gray-700 mb-4">
+              With years of experience in the industry, we understand the unique challenges you face and are here to guide you every step of the way. Whether you need business consulting, financial planning, or investment strategies, we have the expertise to help you succeed.
+            </p>
             <p className="text-gray-700">
-              Our highly qualified team of Chartered Accountants and accountants works diligently to provide timely and accurate financial reports, tax filing assistance, and strategic advice. Our team is dedicated to offering straightforward and actionable advice that empowers you to take charge of your financial health. From budgeting and saving to planning for retirement, we provide the resources and expert guidance you need to make informed decisions every step of the way.
+              Join us on a journey to financial success and let us help you build a brighter future.
             </p>
           </div>
         </div>

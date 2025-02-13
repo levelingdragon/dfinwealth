@@ -1,4 +1,4 @@
-import { Calculator, FileText, PieChart, Users, Shield, Brain } from 'lucide-react';
+import { Calculator, FileText, PieChart, Users, Shield, Brain, Briefcase, DollarSign, TrendingUp } from 'lucide-react';
 
 const services = [
   {
@@ -30,32 +30,38 @@ const services = [
     icon: Brain,
     title: "AI-Powered Insights",
     description: "Cutting-edge AI technology to provide real-time financial insights and recommendations."
+  },
+  {
+    icon: Briefcase,
+    title: "Business Consulting",
+    description: "Expert advice to help you grow your business and achieve your goals."
+  },
+  {
+    icon: DollarSign,
+    title: "Financial Planning",
+    description: "Comprehensive financial planning to secure your future."
+  },
+  {
+    icon: TrendingUp,
+    title: "Investment Strategies",
+    description: "Tailored investment strategies to maximize your returns."
   }
 ];
 
 export function ServicesSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Our Services</h2>
-          <p className="mt-4 text-xl text-gray-600">
-            Comprehensive financial solutions tailored to your needs
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="py-12 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="p-6 bg-gray-100 rounded-lg shadow-lg text-center"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg opacity-0 group-hover:opacity-25 transition-opacity" />
-              <div className="relative">
-                <service.icon className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
+              <service.icon className="h-12 w-12 mx-auto mb-4 text-blue-600" />
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-gray-700">{service.description}</p>
             </div>
           ))}
         </div>
