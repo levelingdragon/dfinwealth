@@ -19,7 +19,7 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <img src={logo} alt="D FinWealth" className="h-8 w-8" />
+              <img src={logo} alt="D FinWealth" className="h-16 w-16" />
               <span className="ml-2 text-xl font-bold text-gray-900">D FinWealth</span>
             </Link>
           </div>
