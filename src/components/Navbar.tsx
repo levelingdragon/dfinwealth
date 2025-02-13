@@ -1,6 +1,7 @@
-import { Menu, X, BarChart2, Shield, Users } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <BarChart2 className="h-8 w-8 text-blue-600" />
+              <img src={logo} alt="D FinWealth" className="h-8 w-8" />
               <span className="ml-2 text-xl font-bold text-gray-900">D FinWealth</span>
             </Link>
           </div>
